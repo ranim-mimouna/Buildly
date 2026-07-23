@@ -12,7 +12,7 @@ const navigationLinks = [
   },
   {
     label: 'Services',
-    href: '/#services',
+    href: '#services',
   },
   {
     label: 'Why Buildly',
@@ -267,7 +267,7 @@ const PublicLayout = ({ children }) => {
 
           <div className={styles.footerLinks}>
             <a href="/#how-it-works">How it works</a>
-            <a href="/#services">Services</a>
+            <a href="#services">Services</a>
             <a href="/#why-buildly">Why Buildly</a>
             <Link to="/login">Log in</Link>
           </div>
