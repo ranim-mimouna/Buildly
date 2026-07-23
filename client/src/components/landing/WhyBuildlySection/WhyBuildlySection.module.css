@@ -1,0 +1,952 @@
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    clamp(105px, 12vw, 180px)
+    0
+    clamp(110px, 13vw, 190px);
+
+  background: #121119;
+  color: white;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.backgroundGrid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 74px 74px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
+}
+
+.backgroundGlowOne {
+  position: absolute;
+  top: -300px;
+  right: -260px;
+
+  width: 780px;
+  height: 780px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(108, 92, 231, 0.22),
+      transparent 68%
+    );
+}
+
+.backgroundGlowTwo {
+  position: absolute;
+  bottom: -350px;
+  left: -300px;
+
+  width: 760px;
+  height: 760px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(184, 255, 106, 0.1),
+      transparent 68%
+    );
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.55fr);
+  align-items: end;
+  gap: clamp(55px, 8vw, 130px);
+
+  margin-bottom: clamp(90px, 10vw, 145px);
+}
+
+.eyebrow {
+  display: inline-flex;
+
+  margin-bottom: 20px;
+  padding: 8px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--color-accent);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sectionHeader h2 {
+  max-width: 800px;
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.064em;
+}
+
+.sectionHeader h2 span {
+  color: var(--color-primary);
+}
+
+.sectionHeader > p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.75;
+}
+
+.comparisonSection {
+  display: grid;
+  grid-template-columns:
+    minmax(280px, 0.62fr)
+    minmax(620px, 1.38fr);
+  align-items: start;
+  gap: clamp(50px, 7vw, 110px);
+}
+
+.comparisonIntro {
+  position: sticky;
+  top: calc(var(--header-height) + 50px);
+}
+
+.comparisonIntro > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--color-primary);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.comparisonIntro h3 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(34px, 4vw, 53px);
+  font-weight: 800;
+  line-height: 1.03;
+  letter-spacing: -0.052em;
+}
+
+.comparisonIntro > p {
+  margin: 24px 0 0;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.introBadge {
+  display: grid;
+  grid-template-columns: 35px minmax(0, 1fr);
+  align-items: center;
+  gap: 11px;
+
+  margin-top: 32px;
+  padding: 14px;
+
+  border: 1px solid rgba(184, 255, 106, 0.15);
+  border-radius: 14px;
+
+  background: rgba(184, 255, 106, 0.06);
+  color: var(--color-accent);
+}
+
+.introBadge > svg {
+  justify-self: center;
+}
+
+.introBadge span {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.comparisonTable {
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(37, 35, 48, 0.94),
+      rgba(24, 23, 32, 0.97)
+    );
+
+  box-shadow:
+    0 45px 100px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.comparisonHeader,
+.comparisonRow {
+  display: grid;
+  grid-template-columns:
+    minmax(130px, 0.75fr)
+    minmax(180px, 1fr)
+    minmax(190px, 1.05fr);
+}
+
+.comparisonHeader {
+  min-height: 72px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.comparisonHeader > span {
+  display: flex;
+  align-items: center;
+
+  padding: 0 22px;
+}
+
+.comparisonHeader > span:not(:first-child) {
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.buildlyColumnHeader {
+  gap: 9px;
+
+  color: var(--color-accent);
+}
+
+.buildlyLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 8px;
+
+  background: var(--color-primary);
+  color: white;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.comparisonRow {
+  min-height: 115px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.comparisonRow:last-child {
+  border-bottom: 0;
+}
+
+.comparisonRow > strong,
+.comparisonRow > p,
+.comparisonRow > div {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 22px;
+}
+
+.comparisonRow > p,
+.comparisonRow > div {
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.comparisonRow > strong {
+  color: white;
+
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.comparisonRow > p {
+  color: rgba(255, 255, 255, 0.43);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.comparisonRow > div {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 10px;
+
+  background: rgba(108, 92, 231, 0.055);
+}
+
+.comparisonRow > div > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 8px;
+
+  background: rgba(184, 255, 106, 0.1);
+  color: var(--color-accent);
+}
+
+.comparisonRow > div p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+
+  margin-top: clamp(110px, 12vw, 175px);
+}
+
+.benefitCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 360px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.benefitCard:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(108, 92, 231, 0.35);
+
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.benefitTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.benefitIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 15px;
+
+  background: rgba(108, 92, 231, 0.13);
+  color: #a99df7;
+}
+
+.benefitNumber {
+  color: rgba(255, 255, 255, 0.26);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.benefitCard h3 {
+  margin: 54px 0 0;
+
+  color: white;
+
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.benefitCard p {
+  margin: 18px 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.benefitLine {
+  width: 48px;
+  height: 2px;
+  margin-top: auto;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--color-primary);
+}
+
+.metricsPanel {
+  display: grid;
+  grid-template-columns:
+    minmax(270px, 0.68fr)
+    minmax(500px, 1.32fr);
+  align-items: center;
+  gap: clamp(50px, 8vw, 125px);
+
+  margin-top: 28px;
+  padding:
+    clamp(40px, 5vw, 70px)
+    clamp(30px, 5vw, 70px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(108, 92, 231, 0.13),
+      rgba(255, 255, 255, 0.045)
+    );
+}
+
+.metricsIntro > span {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: var(--color-accent);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.metricsIntro h3 {
+  margin: 0;
+
+  color: white;
+
+  font-size: clamp(29px, 3.5vw, 46px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 10px 24px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metric:first-child {
+  border-left: 0;
+}
+
+.metric strong {
+  color: white;
+
+  font-size: clamp(33px, 4vw, 53px);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.metric span {
+  color: rgba(255, 255, 255, 0.47);
+
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.testimonialSection {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 20px;
+
+  margin-top: 20px;
+}
+
+.testimonialCard,
+.ctaCard {
+  min-height: 440px;
+  padding: clamp(35px, 5vw, 65px);
+
+  border-radius: 25px;
+}
+
+.testimonialCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.065),
+      rgba(255, 255, 255, 0.035)
+    );
+}
+
+.quoteMark {
+  color: var(--color-primary);
+
+  font-family: Georgia, serif;
+  font-size: 90px;
+  line-height: 0.75;
+}
+
+.testimonialCard blockquote {
+  max-width: 560px;
+  margin: 45px 0 0;
+
+  color: white;
+
+  font-size: clamp(25px, 3vw, 39px);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-top: auto;
+}
+
+.authorAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 43px;
+  height: 43px;
+
+  border-radius: 13px;
+
+  background: rgba(108, 92, 231, 0.16);
+  color: #b6adfb;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.testimonialAuthor > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.testimonialAuthor strong {
+  color: white;
+
+  font-size: 11px;
+}
+
+.testimonialAuthor div span {
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 9px;
+}
+
+.ctaCard {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255, 255, 255, 0.17),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      var(--color-primary),
+      #5849c9
+    );
+}
+
+.ctaCard::after {
+  content: '';
+
+  position: absolute;
+  right: -100px;
+  bottom: -130px;
+
+  width: 360px;
+  height: 360px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.ctaEyebrow {
+  position: relative;
+  z-index: 2;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ctaCard h3 {
+  position: relative;
+  z-index: 2;
+
+  max-width: 650px;
+  margin: 24px 0 0;
+
+  color: white;
+
+  font-size: clamp(35px, 4.5vw, 62px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.ctaCard > p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 570px;
+  margin: 22px 0 0;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.ctaActions {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 34px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 52px;
+  padding: 0 22px;
+
+  border-radius: 13px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease;
+}
+
+.primaryButton {
+  background: white;
+  color: #322b79;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.ctaTrust {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  margin-top: auto;
+  padding-top: 30px;
+}
+
+.ctaTrust span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.66);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@media (max-width: 1120px) {
+  .comparisonSection {
+    grid-template-columns:
+      minmax(240px, 0.5fr)
+      minmax(570px, 1.5fr);
+    gap: 45px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metricsPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sectionHeader {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sectionHeader > p {
+    max-width: 650px;
+  }
+
+  .comparisonSection {
+    display: block;
+  }
+
+  .comparisonIntro {
+    position: relative;
+    top: auto;
+
+    max-width: 690px;
+    margin-bottom: 50px;
+  }
+
+  .testimonialSection {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialCard,
+  .ctaCard {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .comparisonTable {
+    overflow-x: auto;
+  }
+
+  .comparisonHeader,
+  .comparisonRow {
+    width: 760px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 0;
+  }
+
+  .metric:nth-child(3) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .section {
+    padding-top: 95px;
+    padding-bottom: 100px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 80px;
+  }
+
+  .sectionHeader h2 {
+    font-size: clamp(43px, 13vw, 64px);
+  }
+
+  .comparisonIntro h3 {
+    font-size: 37px;
+  }
+
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+
+    margin-top: 85px;
+  }
+
+  .benefitCard {
+    min-height: 320px;
+  }
+
+  .metricsPanel {
+    padding: 34px 24px;
+  }
+
+  .metric {
+    padding: 8px 17px;
+  }
+
+  .testimonialCard,
+  .ctaCard {
+    min-height: auto;
+    padding: 35px 25px;
+  }
+
+  .testimonialCard blockquote {
+    margin-top: 30px;
+
+    font-size: 29px;
+  }
+
+  .testimonialAuthor {
+    margin-top: 65px;
+  }
+
+  .ctaCard h3 {
+    font-size: 41px;
+  }
+
+  .ctaTrust {
+    margin-top: 55px;
+  }
+}
+
+@media (max-width: 440px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    padding: 18px 0;
+
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .metric:first-child {
+    border-top: 0;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .ctaTrust {
+    flex-direction: column;
+    gap: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefitCard,
+  .primaryButton,
+  .secondaryButton {
+    transition: none;
+  }
+}
