@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import LandingPage from '../pages/public/LandingPage/LandingPage';
 import LoginPage from '../pages/public/LoginPage/LoginPage';
 import RegisterPage from '../pages/public/RegisterPage/RegisterPage';
+import ProjectRequirementsPage from "../pages/client/ProjectRequirementsPage/ProjectRequirementsPage";
 
 import ClientDashboardPage from '../pages/client/ClientDashboardPage/ClientDashboardPage';
 import NewProjectPage from '../pages/client/NewProjectPage/NewProjectPage';
@@ -27,6 +28,11 @@ const AppRoutes = () => {
       <Route
         path="/client/projects/new"
         element={<NewProjectPage />}
+      />
+
+      <Route
+        path="/client/projects/new/requirements"
+        element={<ProjectRequirementsPage />}
       />
 
       <Route

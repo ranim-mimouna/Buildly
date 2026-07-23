@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 
 import { motion, useReducedMotion } from 'motion/react';
 
@@ -464,6 +468,7 @@ const CategoryIcon = ({ icon }) => {
 
 const NewProjectPage = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const prefersReducedMotion = useReducedMotion();
 
   const landingPageData = useMemo(() => {
@@ -547,6 +552,8 @@ const NewProjectPage = () => {
     );
 
     setIsStepComplete(true);
+
+    navigate('/client/projects/new/requirements');
   };
 
   const handleCategorySelect = categoryId => {
