@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import Button from '../../components/common/Button/Button';
+import Footer from '../../components/common/Footer/Footer';
 
 import styles from './PublicLayout.module.css';
 
@@ -12,7 +13,7 @@ const navigationLinks = [
   },
   {
     label: 'Services',
-    href: '#services',
+    href: '/#services',
   },
   {
     label: 'Why Buildly',
@@ -229,6 +230,7 @@ const PublicLayout = ({ children }) => {
 
             <div className={styles.mobileMessage}>
               <span>Have an idea?</span>
+
               <p>
                 Buildly gives you the team to make it real.
               </p>
@@ -241,42 +243,7 @@ const PublicLayout = ({ children }) => {
         {children}
       </main>
 
-      <footer className={styles.footer}>
-        <div className={`container ${styles.footerInner}`}>
-          <div className={styles.footerBrand}>
-            <Link
-              to="/"
-              className={styles.logo}
-              aria-label="Buildly home"
-            >
-              <span className={styles.logoMark}>
-                <span />
-                <span />
-                <span />
-              </span>
-
-              <span className={styles.logoText}>
-                Buildly
-              </span>
-            </Link>
-
-            <p>
-              Your Startup Starts Here.
-            </p>
-          </div>
-
-          <div className={styles.footerLinks}>
-            <a href="/#how-it-works">How it works</a>
-            <a href="#services">Services</a>
-            <a href="/#why-buildly">Why Buildly</a>
-            <Link to="/login">Log in</Link>
-          </div>
-
-          <p className={styles.copyright}>
-            © 2026 Buildly. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
