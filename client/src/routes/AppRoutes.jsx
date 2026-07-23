@@ -5,6 +5,7 @@ import LoginPage from '../pages/public/LoginPage/LoginPage';
 import RegisterPage from '../pages/public/RegisterPage/RegisterPage';
 import ProjectRequirementsPage from "../pages/client/ProjectRequirementsPage/ProjectRequirementsPage";
 import ProjectDetailsPage from '../pages/client/ProjectDetailsPage/ProjectDetailsPage';
+import ProjectReviewPage from '../pages/client/ProjectReviewPage/ProjectReviewPage';
 
 import ClientDashboardPage from '../pages/client/ClientDashboardPage/ClientDashboardPage';
 import NewProjectPage from '../pages/client/NewProjectPage/NewProjectPage';
@@ -39,6 +40,11 @@ const AppRoutes = () => {
       <Route
         path="/client/projects/new/details"
         element={<ProjectDetailsPage />}
+      />
+
+      <Route
+        path="/client/projects/new/review"
+        element={<ProjectReviewPage />}
       />
 
       <Route
