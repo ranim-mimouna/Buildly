@@ -12,6 +12,7 @@ import NewProjectPage from '../pages/client/NewProjectPage/NewProjectPage';
 import ClientProjectPage from '../pages/client/ClientProjectPage/ClientProjectPage';
 
 import TeamDashboardPage from '../pages/team/TeamDashboardPage/TeamDashboardPage';
+import TeamProjectPage from '../pages/team/TeamProjectPage/TeamProjectPage';
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage/AdminDashboardPage';
 
 const AppRoutes = () => {
@@ -55,6 +56,11 @@ const AppRoutes = () => {
       <Route
         path="/team/dashboard"
         element={<TeamDashboardPage />}
+      />
+
+      <Route
+        path="/team/projects/:projectId"
+        element={<TeamProjectPage />}
       />
 
       <Route
