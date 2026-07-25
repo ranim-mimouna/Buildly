@@ -626,6 +626,52 @@ const DeliverableIcon = () => {
   );
 };
 
+const TaskIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="4"
+        y="5"
+        width="16"
+        height="15"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M8 10H16"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M8 14H13"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M8 3V7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M16 3V7"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 const SettingsIcon = () => {
   return (
     <svg
@@ -972,6 +1018,14 @@ const TeamProjectPage = () => {
           >
             <DeliverableIcon />
             Manage deliverables
+          </Link>
+
+          <Link
+            to={`/team/projects/${project.id}/tasks`}
+            className={styles.saveButton}
+          >
+            <TaskIcon />
+            Manage tasks
           </Link>
 
           <button
