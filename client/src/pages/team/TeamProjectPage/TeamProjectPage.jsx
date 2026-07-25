@@ -586,6 +586,46 @@ const PaymentIcon = () => {
   );
 };
 
+const DeliverableIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 6H19V20H5V6Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M9 3H15V9H9V3Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M8 14H16"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M8 17H13"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 const SettingsIcon = () => {
   return (
     <svg
@@ -924,6 +964,14 @@ const TeamProjectPage = () => {
           >
             <PaymentIcon />
             Manage payments
+          </Link>
+
+          <Link
+            to={`/team/projects/${project.id}/deliverables`}
+            className={styles.saveButton}
+          >
+            <DeliverableIcon />
+            Manage deliverables
           </Link>
 
           <button

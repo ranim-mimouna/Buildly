@@ -17,6 +17,7 @@ import ProjectMessagesPage from '../pages/shared/ProjectMessagesPage/ProjectMess
 import ProjectRoadmapPage from '../pages/shared/ProjectRoadmapPage/ProjectRoadmapPage';
 import ProjectProposalPage from '../pages/shared/ProjectProposalPage/ProjectProposalPage';
 import ProjectPaymentsPage from '../pages/shared/ProjectPaymentsPage/ProjectPaymentsPage';
+import ProjectDeliverablesPage from '../pages/shared/ProjectDeliverablesPage/ProjectDeliverablesPage';
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage/AdminDashboardPage';
 
 const AppRoutes = () => {
@@ -70,6 +71,20 @@ const AppRoutes = () => {
       <Route
         path="/client/projects/:projectId/payments"
         element={<ProjectPaymentsPage role="client" />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/deliverables"
+        element={
+          <ProjectDeliverablesPage role="client" />
+        }
+      />
+
+      <Route
+        path="/team/projects/:projectId/deliverables"
+        element={
+          <ProjectDeliverablesPage role="team" />
+        }
       />
 
       <Route
