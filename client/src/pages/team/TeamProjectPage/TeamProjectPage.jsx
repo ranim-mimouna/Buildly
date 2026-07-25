@@ -510,6 +510,49 @@ const RoadmapIcon = () => {
   );
 };
 
+const ProposalIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M6 3H15L19 7V21H6V3Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15 3V7H19"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9 11H16"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9 15H16"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M9 19H13"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 const SettingsIcon = () => {
   return (
     <svg
@@ -832,6 +875,14 @@ const TeamProjectPage = () => {
           >
             <RoadmapIcon />
             Manage roadmap
+          </Link>
+
+          <Link
+            to={`/team/projects/${project.id}/proposal`}
+            className={styles.saveButton}
+          >
+            <ProposalIcon />
+            Manage proposal
           </Link>
 
           <button

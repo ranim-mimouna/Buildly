@@ -969,6 +969,13 @@ const ClientProjectPage = () => {
                   <ArrowIcon />
                 </Link>
 
+                <Link
+                  to={`/client/projects/${project.id}/proposal`}
+                >
+                  <ProposalIcon />
+                  View proposal
+                </Link>
+
                 <button
                   type="button"
                   onClick={() => scrollToSection('brief')}
