@@ -553,6 +553,39 @@ const ProposalIcon = () => {
   );
 };
 
+const PaymentIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="6"
+        width="18"
+        height="12"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M3 10H21"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="M7 15H11"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 const SettingsIcon = () => {
   return (
     <svg
@@ -883,6 +916,14 @@ const TeamProjectPage = () => {
           >
             <ProposalIcon />
             Manage proposal
+          </Link>
+
+          <Link
+            to={`/team/projects/${project.id}/payments`}
+            className={styles.saveButton}
+          >
+            <PaymentIcon />
+            Manage payments
           </Link>
 
           <button
