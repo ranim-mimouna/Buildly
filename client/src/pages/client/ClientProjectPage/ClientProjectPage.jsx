@@ -955,12 +955,24 @@ const ClientProjectPage = () => {
               <p>{project.description}</p>
 
               <div className={styles.heroActions}>
-                <button type="button">
+                <Link
+                  to={`/client/projects/${project.id}/messages`}
+                >
                   <MessageIcon />
                   Contact Buildly
-                </button>
+                </Link>
 
-                <button type="button">
+                <Link
+                  to={`/client/projects/${project.id}/roadmap`}
+                >
+                  View roadmap
+                  <ArrowIcon />
+                </Link>
+
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('brief')}
+                >
                   View submitted brief
                   <ArrowIcon />
                 </button>

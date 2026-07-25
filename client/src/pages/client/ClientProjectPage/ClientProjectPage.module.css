@@ -583,7 +583,8 @@
   margin-top: 29px;
 }
 
-.heroActions button {
+.heroActions button,
+.heroActions a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -597,6 +598,7 @@
 
   background: rgba(255, 255, 255, 0.06);
   color: white;
+  text-decoration: none;
 
   font: inherit;
   font-size: 7px;
@@ -1248,7 +1250,8 @@
   line-height: 1.6;
 }
 
-.supportBanner button {
+.supportBanner button,
+.supportBanner a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1390,7 +1393,8 @@
     grid-column: 2;
   }
 
-  .supportBanner button {
+  .supportBanner button,
+  .supportBanner a {
     width: 100%;
   }
 }
@@ -1404,7 +1408,8 @@
     flex-direction: column;
   }
 
-  .heroActions button {
+  .heroActions button,
+  .heroActions a {
     width: 100%;
   }
 }
