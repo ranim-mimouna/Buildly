@@ -1451,10 +1451,12 @@ const ClientProjectPage = () => {
               </p>
             </div>
 
-            <button type="button">
+            <Link
+              to={`/client/projects/${project.id}/messages`}
+            >
               <MessageIcon />
               Contact Buildly
-            </button>
+            </Link>
           </section>
         </div>
       </section>

@@ -781,6 +781,14 @@ const TeamProjectPage = () => {
             Projects
           </Link>
 
+          <Link
+            to={`/team/projects/${project.id}/messages`}
+            className={styles.saveButton}
+          >
+            <MessageIcon />
+            Message client
+          </Link>
+
           <button
             type="button"
             className={styles.navigationLink}
