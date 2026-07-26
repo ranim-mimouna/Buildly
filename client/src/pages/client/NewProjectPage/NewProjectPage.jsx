@@ -60,6 +60,57 @@ const projectCategories = [
   },
 ];
 
+const projectWorkTypes = [
+  {
+    id: 'small-improvement',
+    label: 'Fix or small improvement',
+    description:
+      'Improve, repair or add something to an existing product.',
+  },
+  {
+    id: 'student-project',
+    label: 'University project',
+    description:
+      'Build a final-year project, prototype or academic application.',
+  },
+  {
+    id: 'website',
+    label: 'Website or landing page',
+    description:
+      'Create a professional website or focused marketing experience.',
+  },
+  {
+    id: 'prototype',
+    label: 'Prototype',
+    description:
+      'Turn an early idea into something visual and testable.',
+  },
+  {
+    id: 'new-mvp',
+    label: 'New MVP',
+    description:
+      'Build the first usable version of a new digital product.',
+  },
+  {
+    id: 'existing-product-expansion',
+    label: 'Expand an existing product',
+    description:
+      'Add meaningful features or workflows to a working application.',
+  },
+  {
+    id: 'custom-platform',
+    label: 'Full custom platform',
+    description:
+      'Plan and build a larger product with several connected features.',
+  },
+  {
+    id: 'not-sure',
+    label: 'Not sure yet',
+    description:
+      'Describe your idea and let ShipPilot help classify the work.',
+  },
+];
+
 const progressSteps = [
   {
     label: 'Project idea',
@@ -95,6 +146,7 @@ const getInitialFormData = landingPageData => {
   const fallbackData = {
     projectTitle: '',
     selectedCategory: landingCategory,
+    selectedWorkType: '',
     description: landingPageData.idea,
   };
 
@@ -113,6 +165,7 @@ const getInitialFormData = landingPageData => {
       projectTitle: parsedDraft.projectTitle ?? '',
       selectedCategory:
         parsedDraft.selectedCategory || landingCategory,
+      selectedWorkType: parsedDraft.selectedWorkType ?? '',
       description:
         parsedDraft.description || landingPageData.idea,
     };
@@ -491,6 +544,10 @@ const NewProjectPage = () => {
     initialFormData.selectedCategory,
   );
 
+  const [selectedWorkType, setSelectedWorkType] = useState(
+    initialFormData.selectedWorkType,
+  );
+
   const [description, setDescription] = useState(
     initialFormData.description,
   );
@@ -502,6 +559,7 @@ const NewProjectPage = () => {
     return {
       projectTitle: projectTitle.trim(),
       selectedCategory,
+      selectedWorkType,
       description: description.trim(),
       updatedAt: new Date().toISOString(),
     };
@@ -535,6 +593,11 @@ const NewProjectPage = () => {
         'Please select the closest project category.';
     }
 
+    if (!selectedWorkType) {
+      nextErrors.selectedWorkType =
+        'Please select the kind of work you need.';
+    }
+
     if (!description.trim()) {
       nextErrors.description =
         'Please add a short description of your idea.';
@@ -563,6 +626,17 @@ const NewProjectPage = () => {
       ...currentErrors,
       selectedCategory: '',
     }));
+  };
+
+  const handleWorkTypeSelect = workTypeId => {
+    setSelectedWorkType(workTypeId);
+
+    setErrors(currentErrors => ({
+      ...currentErrors,
+      selectedWorkType: '',
+    }));
+
+    setIsStepComplete(false);
   };
 
   return (
@@ -851,6 +925,88 @@ const NewProjectPage = () => {
                   </span>
                 )}
               </fieldset>
+              
+              <fieldset className={styles.categoryFieldset}>
+                <legend>
+                  <span className={styles.fieldLabel}>
+                    What kind of work do you need?
+                    <small>Required</small>
+                  </span>
+                </legend>
+
+                <p className={styles.fieldHint}>
+                  This helps us understand whether you are starting
+                  something new or improving an existing product.
+                </p>
+
+                <div className={styles.categoryGrid}>
+                  {projectWorkTypes.map((workType, index) => {
+                    const isSelected =
+                      selectedWorkType === workType.id;
+
+                    return (
+                      <motion.button
+                        key={workType.id}
+                        type="button"
+                        className={`${styles.categoryCard} ${
+                          isSelected
+                            ? styles.categoryCardSelected
+                            : ''
+                        }`}
+                        onClick={() =>
+                          handleWorkTypeSelect(workType.id)
+                        }
+                        initial={{
+                          opacity: 0,
+                          y: prefersReducedMotion ? 0 : 15,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.4,
+                          delay: index * 0.035,
+                        }}
+                        whileHover={
+                          prefersReducedMotion
+                            ? undefined
+                            : {
+                                y: -4,
+                              }
+                        }
+                        whileTap={
+                          prefersReducedMotion
+                            ? undefined
+                            : {
+                                scale: 0.98,
+                              }
+                        }
+                        aria-pressed={isSelected}
+                      >
+                        <span className={styles.categoryIcon}>
+                          <ToolIcon />
+                        </span>
+
+                        <span className={styles.categoryCopy}>
+                          <strong>{workType.label}</strong>
+                          <small>{workType.description}</small>
+                        </span>
+
+                        <span className={styles.selectionMark}>
+                          {isSelected && <CheckIcon />}
+                        </span>
+                      </motion.button>
+                    );
+                  })}
+                </div>
+
+                {errors.selectedWorkType && (
+                  <span className={styles.errorMessage}>
+                    {errors.selectedWorkType}
+                  </span>
+                )}
+              </fieldset>              
 
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>

@@ -34,52 +34,91 @@ const progressSteps = [
 
 const budgetOptions = [
   {
-    id: 'under-5k',
-    label: 'Under €5,000',
-    description: 'A focused prototype or very small first version.',
+    id: 'under-250',
+    label: 'Under €250',
+    description:
+      'Small fixes, university projects or very small improvements.',
   },
   {
-    id: '5k-15k',
-    label: '€5,000 – €15,000',
-    description: 'A polished MVP with essential product features.',
+    id: '250-500',
+    label: '€250 – €500',
+    description:
+      'Landing pages, simple websites or small feature requests.',
   },
   {
-    id: '15k-30k',
-    label: '€15,000 – €30,000',
-    description: 'A larger MVP or production-ready first release.',
+    id: '500-1000',
+    label: '€500 – €1,000',
+    description:
+      'Small MVPs, internal tools or larger improvements.',
   },
   {
-    id: '30k-plus',
-    label: '€30,000+',
-    description: 'A complex platform or long-term product build.',
+    id: '1000-2500',
+    label: '€1,000 – €2,500',
+    description:
+      'A complete MVP or a professional business application.',
+  },
+  {
+    id: '2500-5000',
+    label: '€2,500 – €5,000',
+    description:
+      'Larger products with multiple features and user roles.',
+  },
+  {
+    id: '5000-10000',
+    label: '€5,000 – €10,000',
+    description:
+      'Complex products requiring several development phases.',
+  },
+  {
+    id: '10000-plus',
+    label: 'More than €10,000',
+    description:
+      'Large custom platforms and long-term development.',
   },
   {
     id: 'not-sure',
     label: 'Not sure yet',
-    description: 'I need help defining the right investment.',
+    description:
+      'Help me estimate the right budget.',
   },
 ];
 
 const timelineOptions = [
   {
-    id: 'asap',
-    label: 'As soon as possible',
-    description: 'Speed is the main priority.',
+    id: 'under-2-weeks',
+    label: 'Within 2 weeks',
+    description:
+      'Best for urgent fixes, small improvements or simple pages.',
+  },
+  {
+    id: '2-4-weeks',
+    label: 'Within 2–4 weeks',
+    description:
+      'Suitable for websites, prototypes and focused small projects.',
   },
   {
     id: '1-2-months',
     label: 'Within 1–2 months',
-    description: 'A focused build with a clear launch target.',
+    description:
+      'A realistic timeline for small MVPs and business applications.',
   },
   {
     id: '3-4-months',
     label: 'Within 3–4 months',
-    description: 'More room for discovery, design and iteration.',
+    description:
+      'More time for discovery, design, development and testing.',
+  },
+  {
+    id: 'over-4-months',
+    label: 'More than 4 months',
+    description:
+      'Best for larger platforms or projects delivered in phases.',
   },
   {
     id: 'flexible',
     label: 'Flexible',
-    description: 'Quality and planning matter more than a date.',
+    description:
+      'Quality, scope and planning matter more than a fixed deadline.',
   },
 ];
 
@@ -108,47 +147,67 @@ const designOptions = [
 
 const ownershipOptions = [
   {
-    id: 'shippilot-managed',
-    label: 'ShipPilot manages everything',
-    description: 'Planning, design, development and delivery.',
+    id: 'full-team',
+    label: 'ShipPilot builds the entire project',
+    description:
+      'Our team handles planning, design, development, testing and delivery.',
   },
   {
     id: 'collaborative',
-    label: 'Work with my team',
-    description: 'ShipPilot collaborates with existing people.',
+    label: 'Work together with my team',
+    description:
+      'We collaborate with your developers, designers or product team.',
   },
   {
     id: 'development-only',
     label: 'Development only',
-    description: 'I already have product and design support.',
+    description:
+      'You already have designs or specifications and need implementation.',
+  },
+  {
+    id: 'technical-partner',
+    label: 'Long-term technical partner',
+    description:
+      'ShipPilot becomes your ongoing development partner as your product grows.',
   },
   {
     id: 'not-sure',
     label: 'Help me decide',
-    description: 'Recommend the best setup for this project.',
+    description:
+      'Recommend the best collaboration model for this project.',
   },
 ];
 
 const supportOptions = [
   {
-    id: 'launch-only',
-    label: 'Launch only',
-    description: 'Complete the first release and hand it over.',
+    id: 'handover-only',
+    label: 'Delivery and handover only',
+    description:
+      'Receive the completed project, documentation and setup guidance.',
   },
   {
-    id: 'short-term',
-    label: 'Short-term support',
-    description: 'Help during launch and the first improvements.',
+    id: 'warranty-support',
+    label: 'Short warranty period',
+    description:
+      'Get help fixing launch-related issues after delivery.',
+  },
+  {
+    id: 'improvement-package',
+    label: 'Post-launch improvements',
+    description:
+      'Continue with a defined package of updates and refinements.',
   },
   {
     id: 'ongoing',
-    label: 'Ongoing product team',
-    description: 'Continue developing and maintaining the product.',
+    label: 'Ongoing product support',
+    description:
+      'Keep a ShipPilot team available for maintenance and new features.',
   },
   {
     id: 'not-sure',
     label: 'Not sure yet',
-    description: 'Discuss the best support model with me.',
+    description:
+      'Let ShipPilot recommend the right support model.',
   },
 ];
 
@@ -662,9 +721,9 @@ const ProjectDetailsPage = () => {
                 </strong>
 
                 <p>
-                  Budget, timing and team structure
-                  can all be refined during the
-                  discovery call.
+                  Budget, timing and delivery phases 
+                  and support can all be refined after 
+                  ShipPilot reviews your request.
                 </p>
               </div>
             </div>
@@ -681,11 +740,16 @@ const ProjectDetailsPage = () => {
                   <span
                     className={styles.fieldLabel}
                   >
-                    What budget range are you
-                    considering?
+                    What investment are you planning 
+                    for this project?
                     <small>Required</small>
                   </span>
                 </legend>
+
+                <p className={styles.fieldHint}>
+                  Don't worry if you aren't sure. ShipPilot can recommend the
+                  most suitable budget after reviewing your project.
+                </p>
 
                 <div
                   className={styles.optionGrid}
@@ -728,7 +792,7 @@ const ProjectDetailsPage = () => {
                   <span
                     className={styles.fieldLabel}
                   >
-                    When would you like to launch?
+                    When would you like the project completed?
                     <small>Required</small>
                   </span>
                 </legend>
@@ -853,8 +917,8 @@ const ProjectDetailsPage = () => {
                   <span
                     className={styles.fieldLabel}
                   >
-                    How should ShipPilot work with
-                    you?
+                    How would you like to 
+                    work with ShipPilot?
                     <small>Required</small>
                   </span>
                 </legend>
@@ -901,7 +965,7 @@ const ProjectDetailsPage = () => {
                     className={styles.fieldLabel}
                   >
                     What support would you prefer
-                    after launch?
+                    after delivery?
                     <small>Required</small>
                   </span>
                 </legend>
