@@ -672,6 +672,48 @@ const TaskIcon = () => {
   );
 };
 
+const TeamIcon = () => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle
+        cx="9"
+        cy="8"
+        r="3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+
+      <circle
+        cx="17"
+        cy="9"
+        r="2.3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+
+      <path
+        d="M3.5 20C3.5 16.4 5.8 14 9 14C12.2 14 14.5 16.4 14.5 20"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M15.5 14.8C18.4 14.8 20.5 16.8 20.5 19.6"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+};
+
 const SettingsIcon = () => {
   return (
     <svg
@@ -1026,6 +1068,14 @@ const TeamProjectPage = () => {
           >
             <TaskIcon />
             Manage tasks
+          </Link>
+
+          <Link
+            to={`/team/projects/${project.id}/team`}
+            className={styles.saveButton}
+          >
+            <TeamIcon />
+            Manage team
           </Link>
 
           <button
