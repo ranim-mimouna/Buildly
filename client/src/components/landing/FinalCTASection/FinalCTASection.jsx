@@ -187,7 +187,7 @@ const FinalCTASection = () => {
               </h2>
 
               <p>
-                Tell Buildly what you want to create. We will
+                Tell ShipPilot what you want to create. We will
                 help turn your idea into a clear product plan,
                 realistic scope and working digital product.
               </p>
@@ -281,7 +281,7 @@ const FinalCTASection = () => {
 
                 <p>
                   A few sentences are enough. You can refine the
-                  details together with the Buildly team later.
+                  details together with the ShipPilot team later.
                 </p>
               </div>
 

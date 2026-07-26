@@ -12,13 +12,14 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './TeamProjectPage.module.css';
 
 const statusOptions = [
   {
     id: 'submitted',
     label: 'Submitted',
-    description: 'Waiting for the first Buildly review.',
+    description: 'Waiting for the first project review.',
   },
   {
     id: 'in-review',
@@ -142,7 +143,8 @@ const designLabels = {
 };
 
 const ownershipLabels = {
-  'buildly-managed': 'Buildly manages everything',
+  'buildly-managed': 'ShipPilot manages everything',
+  'shippilot-managed': 'ShipPilot manages everything',
   collaborative: 'Work with my team',
   'development-only': 'Development only',
   'not-sure': 'Help me decide',
@@ -180,7 +182,7 @@ const projectSections = [
 
 const getStoredProjects = () => {
   const savedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!savedProjects) {
@@ -194,7 +196,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -881,7 +883,7 @@ const TeamProjectPage = () => {
         assignedMembers,
         priority: internalPriority,
         notes: internalNotes.trim(),
-        lastUpdatedBy: 'Buildly Manager',
+        lastUpdatedBy: 'ShipPilot Manager',
         lastUpdatedAt: new Date().toISOString(),
       },
     };
@@ -894,12 +896,12 @@ const TeamProjectPage = () => {
     );
 
     localStorage.setItem(
-      'buildly-projects',
+      STORAGE_KEYS.PROJECTS,
       JSON.stringify(updatedProjects),
     );
 
     localStorage.setItem(
-      'buildly-last-updated-project',
+      STORAGE_KEYS.LAST_UPDATED_PROJECT,
       JSON.stringify(updatedProject),
     );
 
@@ -981,7 +983,7 @@ const TeamProjectPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1137,7 +1139,7 @@ const TeamProjectPage = () => {
             <span>BM</span>
 
             <div>
-              <strong>Buildly Manager</strong>
+              <strong>ShipPilot Manager</strong>
               <small>Team administrator</small>
             </div>
           </div>
@@ -1354,7 +1356,7 @@ const TeamProjectPage = () => {
               <strong>
                 {assignedMembers.length}
               </strong>
-              <small>Buildly collaborators</small>
+              <small>ShipPilot collaborators</small>
             </article>
           </section>
 
@@ -1582,7 +1584,7 @@ const TeamProjectPage = () => {
           >
             <div className={styles.sectionHeading}>
               <div>
-                <span>Buildly private area</span>
+                <span>ShipPilot private area</span>
                 <h2>Internal workspace</h2>
               </div>
 
@@ -1604,7 +1606,7 @@ const TeamProjectPage = () => {
                 </header>
 
                 <p>
-                  Select the Buildly team members
+                  Select the project team members
                   responsible for this project.
                 </p>
 
@@ -1697,7 +1699,7 @@ const TeamProjectPage = () => {
 
                   <small>
                     This priority is visible only
-                    inside the Buildly workspace.
+                    inside the ShipPilot workspace.
                   </small>
                 </div>
 
@@ -1753,7 +1755,7 @@ const TeamProjectPage = () => {
                   </strong>
                   <p>
                     {clientName} completed the
-                    Buildly onboarding flow.
+                    ShipPilot onboarding flow.
                   </p>
                 </div>
 
@@ -1781,7 +1783,7 @@ const TeamProjectPage = () => {
                       Changes saved by{' '}
                       {project.internal
                         .lastUpdatedBy ??
-                        'Buildly Manager'}
+                        'ShipPilot Manager'}
                       .
                     </p>
                   </div>

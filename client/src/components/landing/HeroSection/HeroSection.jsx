@@ -385,7 +385,7 @@ const HeroSection = () => {
               </div>
 
               <div className={styles.workspaceLabel}>
-                Buildly Workspace
+                ShipPilot Workspace
               </div>
 
               <div className={styles.onlineStatus}>

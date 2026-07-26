@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ClientProjectPage.module.css';
 
 const statusLabels = {
@@ -70,7 +71,8 @@ const designLabels = {
 };
 
 const ownershipLabels = {
-  'buildly-managed': 'Buildly manages everything',
+  'buildly-managed': 'ShipPilot manages everything',
+  'shippilot-managed': 'ShipPilot manages everything',
   collaborative: 'Work with my team',
   'development-only': 'Development only',
   'not-sure': 'Help me decide',
@@ -104,7 +106,7 @@ const projectSections = [
 
 const getStoredProjects = () => {
   const savedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!savedProjects) {
@@ -118,7 +120,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -190,13 +192,13 @@ const getMilestones = project => {
       id: 'submitted',
       title: 'Project submitted',
       description:
-        'Your complete project request was added to Buildly.',
+        'Your complete project request was added to ShipPilot.',
     },
     {
       id: 'review',
-      title: 'Buildly review',
+      title: 'Project review',
       description:
-        'Our team reviews the idea, requirements and delivery details.',
+        'Your project team reviews the idea, requirements and delivery details.',
     },
     {
       id: 'planning',
@@ -208,7 +210,7 @@ const getMilestones = project => {
       id: 'development',
       title: 'Product development',
       description:
-        'The Buildly team designs, builds and tests the product.',
+        'Your project team designs, builds and tests the product.',
     },
     {
       id: 'delivery',
@@ -895,7 +897,7 @@ const ClientProjectPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -903,7 +905,7 @@ const ClientProjectPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1076,7 +1078,7 @@ const ClientProjectPage = () => {
                     </button>
 
                     <button type="button">
-                      Contact Buildly
+                      Contact your project team
                     </button>
 
                     <button
@@ -1160,7 +1162,7 @@ const ClientProjectPage = () => {
                   to={`/client/projects/${project.id}/messages`}
                 >
                   <MessageIcon />
-                  Contact Buildly
+                  Contact your project team
                 </Link>
 
                 <Link
@@ -1245,8 +1247,8 @@ const ClientProjectPage = () => {
 
                 <p>
                   {project.status === 'submitted'
-                    ? 'Your request is ready for the Buildly team to review.'
-                    : 'Your project is moving through the Buildly delivery process.'}
+                    ? 'Your request is ready for your project team to review.'
+                    : 'Your project is moving through the ShipPilot delivery process.'}
                 </p>
               </div>
 
@@ -1646,7 +1648,7 @@ const ClientProjectPage = () => {
 
                   <p>
                     Your complete project request
-                    was added to the Buildly
+                    was added to the ShipPilot
                     workspace.
                   </p>
                 </div>
@@ -1667,7 +1669,7 @@ const ClientProjectPage = () => {
 
                 <div>
                   <strong>
-                    Buildly review pending
+                    Project review pending
                   </strong>
 
                   <p>
@@ -1687,7 +1689,7 @@ const ClientProjectPage = () => {
               <span>Need to add something?</span>
 
               <h2>
-                Talk directly with the Buildly
+                Talk directly with the your project
                 team.
               </h2>
 
@@ -1701,7 +1703,7 @@ const ClientProjectPage = () => {
               to={`/client/projects/${project.id}/messages`}
             >
               <MessageIcon />
-              Contact Buildly
+              Contact your project team
             </Link>
           </section>
         </div>

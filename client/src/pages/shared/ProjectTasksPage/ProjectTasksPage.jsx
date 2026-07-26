@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectTasksPage.module.css';
 
 const columns = [
@@ -107,7 +108,7 @@ const categoryLabels = {
 
 const getStoredProjects = () => {
   const storedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!storedProjects) {
@@ -123,7 +124,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -131,7 +132,7 @@ const getStoredProjects = () => {
 
 const getStoredTasks = () => {
   const storedTasks = localStorage.getItem(
-    'buildly-project-tasks',
+    STORAGE_KEYS.PROJECT_TASKS,
   );
 
   if (!storedTasks) {
@@ -148,7 +149,7 @@ const getStoredTasks = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-tasks',
+      STORAGE_KEYS.PROJECT_TASKS,
     );
 
     return {};
@@ -838,7 +839,7 @@ const ProjectTasksPage = ({
     const storedBoards = getStoredTasks();
 
     localStorage.setItem(
-      'buildly-project-tasks',
+      STORAGE_KEYS.PROJECT_TASKS,
       JSON.stringify({
         ...storedBoards,
         [project.id]: nextBoard,
@@ -921,7 +922,7 @@ const ProjectTasksPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1046,7 +1047,7 @@ const ProjectTasksPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 

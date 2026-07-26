@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectPaymentsPage.module.css';
 
 const paymentStatuses = {
@@ -61,7 +62,7 @@ const paymentTypes = [
 
 const getStoredProjects = () => {
   const storedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!storedProjects) {
@@ -77,7 +78,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -85,7 +86,7 @@ const getStoredProjects = () => {
 
 const getStoredProposals = () => {
   const storedProposals = localStorage.getItem(
-    'buildly-project-proposals',
+    STORAGE_KEYS.PROJECT_PROPOSALS,
   );
 
   if (!storedProposals) {
@@ -104,7 +105,7 @@ const getStoredProposals = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-proposals',
+      STORAGE_KEYS.PROJECT_PROPOSALS,
     );
 
     return {};
@@ -113,7 +114,7 @@ const getStoredProposals = () => {
 
 const getStoredPaymentPlans = () => {
   const storedPlans = localStorage.getItem(
-    'buildly-project-payment-plans',
+    STORAGE_KEYS.PROJECT_PAYMENT_PLANS,
   );
 
   if (!storedPlans) {
@@ -130,7 +131,7 @@ const getStoredPaymentPlans = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-payment-plans',
+      STORAGE_KEYS.PROJECT_PAYMENT_PLANS,
     );
 
     return {};
@@ -191,7 +192,7 @@ const createDefaultPaymentPlan = (
         id: `payment-deposit-${project.id}`,
         title: 'Initial project deposit',
         description:
-          'Confirms the project start and reserves the Buildly delivery team.',
+          'Confirms the project start and reserves the ShipPilot delivery team.',
         type: 'deposit',
         amount: depositAmount,
         dueDate: '',
@@ -787,7 +788,7 @@ const ProjectPaymentsPage = ({
     const storedPlans = getStoredPaymentPlans();
 
     localStorage.setItem(
-      'buildly-project-payment-plans',
+      STORAGE_KEYS.PROJECT_PAYMENT_PLANS,
       JSON.stringify({
         ...storedPlans,
         [project.id]: nextPlan,
@@ -924,7 +925,7 @@ const ProjectPaymentsPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1039,7 +1040,7 @@ const ProjectPaymentsPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 
@@ -1226,7 +1227,7 @@ const ProjectPaymentsPage = ({
                   </strong>
 
                   <p>
-                    The Buildly team is preparing
+                    The ShipPilot team is preparing
                     your staged payment schedule.
                   </p>
                 </div>

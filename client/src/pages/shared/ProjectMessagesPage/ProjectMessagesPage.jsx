@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectMessagesPage.module.css';
 
 const statusLabels = {
@@ -35,7 +36,7 @@ const categoryLabels = {
 
 const getStoredProjects = () => {
   const value = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!value) {
@@ -49,7 +50,7 @@ const getStoredProjects = () => {
       ? projects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -57,7 +58,7 @@ const getStoredProjects = () => {
 
 const getStoredMessages = () => {
   const value = localStorage.getItem(
-    'buildly-project-messages',
+    STORAGE_KEYS.PROJECT_MESSAGES,
   );
 
   if (!value) {
@@ -74,7 +75,7 @@ const getStoredMessages = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-messages',
+      STORAGE_KEYS.PROJECT_MESSAGES,
     );
 
     return {};
@@ -148,7 +149,7 @@ const createInitialMessages = (
       id: `welcome-${project.id}`,
       type: 'message',
       senderRole: 'team',
-      senderName: 'Buildly Team',
+      senderName: 'ShipPilot Team',
       senderInitials: 'BT',
       text: `Hi ${clientName}, your project request has been received. This conversation is where we will share questions, progress updates and important decisions.`,
       createdAt,
@@ -561,7 +562,7 @@ const ProjectMessagesPage = ({
   const currentUser =
     role === 'team'
       ? {
-          name: 'Buildly Team',
+          name: 'ShipPilot Team',
           initials: 'BT',
         }
       : {
@@ -608,7 +609,7 @@ const ProjectMessagesPage = ({
     };
 
     localStorage.setItem(
-      'buildly-project-messages',
+      STORAGE_KEYS.PROJECT_MESSAGES,
       JSON.stringify(nextStorage),
     );
   };
@@ -729,7 +730,7 @@ const ProjectMessagesPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -831,7 +832,7 @@ const ProjectMessagesPage = ({
 
               <small>
                 {role === 'team'
-                  ? 'Buildly workspace'
+                  ? 'ShipPilot workspace'
                   : 'Project owner'}
               </small>
             </div>
@@ -1176,7 +1177,7 @@ const ProjectMessagesPage = ({
                 placeholder={
                   role === 'team'
                     ? 'Write an update or ask the client a question...'
-                    : 'Write a message to the Buildly team...'
+                    : 'Write a message to the ShipPilot team...'
                 }
                 onChange={event =>
                   setMessageValue(
@@ -1388,7 +1389,7 @@ const ProjectMessagesPage = ({
 
                       <div>
                         <strong>
-                          Buildly Team
+                          ShipPilot Team
                         </strong>
                         <small>
                           Product team

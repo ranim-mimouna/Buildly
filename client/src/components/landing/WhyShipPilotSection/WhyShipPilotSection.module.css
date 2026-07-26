@@ -269,13 +269,13 @@
   border-left: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.buildlyColumnHeader {
+.shipPilotColumnHeader {
   gap: 9px;
 
   color: var(--color-accent);
 }
 
-.buildlyLogo {
+.shipPilotLogo {
   display: flex;
   align-items: center;
   justify-content: center;

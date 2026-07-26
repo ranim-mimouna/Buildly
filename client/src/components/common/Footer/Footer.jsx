@@ -36,8 +36,8 @@ const Footer = () => {
         <div className={styles.top}>
           <div className={styles.brandColumn}>
             <Link to="/" className={styles.logo}>
-              <span>B</span>
-              Buildly
+              <span>S</span>
+              ShipPilot
             </Link>
 
             <p>
@@ -60,7 +60,7 @@ const Footer = () => {
 
               <a href="#how-it-works">How it works</a>
               <a href="#services">Services</a>
-              <a href="#why-buildly">Why Buildly</a>
+              <a href="#why-shippilot">Why ShipPilot</a>
               <Link to="/client/projects/new">
                 Start a project
               </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
 
         <div className={styles.bottom}>
           <span>
-            © {new Date().getFullYear()} Buildly. All rights
+            © {new Date().getFullYear()} ShipPilot. All rights
             reserved.
           </span>
 

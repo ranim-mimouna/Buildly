@@ -12,9 +12,10 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectTeamPage.module.css';
 
-const TEAM_STORAGE_KEY = 'buildly-project-teams';
+const TEAM_STORAGE_KEY = STORAGE_KEYS.PROJECT_TEAMS;
 
 const departmentOptions = [
   {
@@ -110,7 +111,7 @@ const categoryLabels = {
 
 const getStoredProjects = () => {
   const storedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!storedProjects) {
@@ -126,7 +127,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -166,7 +167,7 @@ const createDefaultTeam = project => {
       {
         id: `member-product-${project.id}`,
         name: 'Product Lead',
-        email: 'product@buildly.example',
+        email: 'product@ShipPilot.example',
         role: 'Product Manager',
         level: 'senior',
         department: 'product',
@@ -182,7 +183,7 @@ const createDefaultTeam = project => {
       {
         id: `member-frontend-${project.id}`,
         name: 'Frontend Developer',
-        email: 'frontend@buildly.example',
+        email: 'frontend@ShipPilot.example',
         role: 'Frontend Developer',
         level: 'mid',
         department: 'frontend',
@@ -198,7 +199,7 @@ const createDefaultTeam = project => {
       {
         id: `member-reviewer-${project.id}`,
         name: 'Senior Reviewer',
-        email: 'reviewer@buildly.example',
+        email: 'reviewer@ShipPilot.example',
         role: 'Technical Reviewer',
         level: 'senior',
         department: 'engineering',
@@ -1033,7 +1034,7 @@ const ProjectTeamPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1167,7 +1168,7 @@ const ProjectTeamPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 
@@ -1430,7 +1431,7 @@ const ProjectTeamPage = ({
                   </h2>
 
                   <p>
-                    Buildly projects should have at
+                    ShipPilot projects should have at
                     least three active members,
                     clear leadership and an
                     independent reviewer.
@@ -1463,7 +1464,7 @@ const ProjectTeamPage = ({
                 <h2>
                   {isTeam
                     ? 'Manage project members'
-                    : 'Meet your Buildly team'}
+                    : 'Meet your ShipPilot team'}
                 </h2>
               </div>
 
@@ -1602,7 +1603,7 @@ const ProjectTeamPage = ({
                             <input
                               type="email"
                               value={member.email}
-                              placeholder="member@buildly.com"
+                              placeholder="member@ShipPilot.com"
                               onChange={event =>
                                 updateMember(
                                   member.id,
@@ -1922,7 +1923,7 @@ const ProjectTeamPage = ({
                 <p>
                   {isTeam
                     ? 'Add at least three people with clear delivery, leadership and review responsibilities.'
-                    : 'Visible project members will appear here after the Buildly team confirms the delivery team.'}
+                    : 'Visible project members will appear here after the ShipPilot team confirms the delivery team.'}
                 </p>
 
                 {isTeam && (

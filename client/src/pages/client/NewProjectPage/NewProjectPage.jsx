@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { motion, useReducedMotion } from 'motion/react';
-
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './NewProjectPage.module.css';
 
 const projectCategories = [
@@ -99,7 +99,7 @@ const getInitialFormData = landingPageData => {
   };
 
   const savedDraft = localStorage.getItem(
-    'buildly-new-project-draft',
+    STORAGE_KEYS.NEW_PROJECT_DRAFT,
   );
 
   if (!savedDraft) {
@@ -117,7 +117,7 @@ const getInitialFormData = landingPageData => {
         parsedDraft.description || landingPageData.idea,
     };
   } catch {
-    localStorage.removeItem('buildly-new-project-draft');
+    localStorage.removeItem(STORAGE_KEYS.NEW_PROJECT_DRAFT);
 
     return fallbackData;
   }
@@ -509,7 +509,7 @@ const NewProjectPage = () => {
 
   const handleSaveDraft = () => {
     localStorage.setItem(
-      'buildly-new-project-draft',
+      STORAGE_KEYS.NEW_PROJECT_DRAFT,
       JSON.stringify(createDraft()),
     );
 
@@ -547,7 +547,7 @@ const NewProjectPage = () => {
     }
 
     localStorage.setItem(
-      'buildly-new-project-draft',
+      STORAGE_KEYS.NEW_PROJECT_DRAFT,
       JSON.stringify(createDraft()),
     );
 
@@ -591,7 +591,7 @@ const NewProjectPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -599,7 +599,7 @@ const NewProjectPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <div className={styles.sidebarCopy}>
@@ -669,7 +669,7 @@ const NewProjectPage = () => {
           </div>
 
           <span className={styles.sidebarCopyright}>
-            © {new Date().getFullYear()} Buildly
+            © {new Date().getFullYear()} ShipPilot
           </span>
         </motion.aside>
 

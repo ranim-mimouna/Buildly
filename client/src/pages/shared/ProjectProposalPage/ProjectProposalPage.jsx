@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectProposalPage.module.css';
 
 const proposalStatuses = {
@@ -43,7 +44,7 @@ const phases = [
 
 const getStoredProjects = () => {
   const storedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!storedProjects) {
@@ -59,7 +60,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -67,7 +68,7 @@ const getStoredProjects = () => {
 
 const getStoredProposals = () => {
   const storedProposals = localStorage.getItem(
-    'buildly-project-proposals',
+    STORAGE_KEYS.PROJECT_PROPOSALS,
   );
 
   if (!storedProposals) {
@@ -86,7 +87,7 @@ const getStoredProposals = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-proposals',
+      STORAGE_KEYS.PROJECT_PROPOSALS,
     );
 
     return {};
@@ -658,7 +659,7 @@ const ProjectProposalPage = ({
       getStoredProposals();
 
     localStorage.setItem(
-      'buildly-project-proposals',
+      STORAGE_KEYS.PROJECT_PROPOSALS,
       JSON.stringify({
         ...storedProposals,
         [project.id]: nextProposal,
@@ -798,7 +799,7 @@ const ProjectProposalPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -903,7 +904,7 @@ const ProjectProposalPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 
@@ -1088,7 +1089,7 @@ const ProjectProposalPage = ({
                   </strong>
 
                   <p>
-                    The Buildly team is preparing
+                    The ShipPilot team is preparing
                     the detailed scope and pricing.
                   </p>
                 </div>

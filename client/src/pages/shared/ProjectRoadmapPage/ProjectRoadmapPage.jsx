@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectRoadmapPage.module.css';
 
 const milestoneStatuses = [
@@ -54,7 +55,7 @@ const categoryLabels = {
 
 const getStoredProjects = () => {
   const value = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!value) {
@@ -68,7 +69,7 @@ const getStoredProjects = () => {
       ? projects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -76,7 +77,7 @@ const getStoredProjects = () => {
 
 const getStoredRoadmaps = () => {
   const value = localStorage.getItem(
-    'buildly-project-roadmaps',
+    STORAGE_KEYS.PROJECT_ROADMAPS,
   );
 
   if (!value) {
@@ -93,7 +94,7 @@ const getStoredRoadmaps = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-roadmaps',
+      STORAGE_KEYS.PROJECT_ROADMAPS,
     );
 
     return {};
@@ -726,14 +727,14 @@ const ProjectRoadmapPage = ({
       getStoredRoadmaps();
 
     localStorage.setItem(
-      'buildly-project-roadmaps',
+      STORAGE_KEYS.PROJECT_ROADMAPS,
       JSON.stringify({
         ...storedRoadmaps,
         [project.id]: {
           projectId: project.id,
           milestones,
           updatedAt,
-          updatedBy: 'Buildly Team',
+          updatedBy: 'ShipPilot Team',
         },
       }),
     );
@@ -803,7 +804,7 @@ const ProjectRoadmapPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -903,7 +904,7 @@ const ProjectRoadmapPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 
@@ -1426,7 +1427,7 @@ const ProjectRoadmapPage = ({
                 <p>
                   {isTeam
                     ? 'Add the first milestone to begin creating this project roadmap.'
-                    : 'The Buildly team has not published a project roadmap yet.'}
+                    : 'The ShipPilot team has not published a project roadmap yet.'}
                 </p>
 
                 {isTeam && (
@@ -1453,7 +1454,7 @@ const ProjectRoadmapPage = ({
               <h2>
                 {isTeam
                   ? 'Share clear progress through every project phase.'
-                  : 'Talk directly with the Buildly team.'}
+                  : 'Talk directly with the ShipPilot team.'}
               </h2>
 
               <p>
@@ -1469,7 +1470,7 @@ const ProjectRoadmapPage = ({
               <MessageIcon />
               {isTeam
                 ? 'Message client'
-                : 'Contact Buildly'}
+                : 'Contact ShipPilot'}
             </Link>
           </section>
         </motion.div>

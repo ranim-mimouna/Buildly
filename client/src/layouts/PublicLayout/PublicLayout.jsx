@@ -16,8 +16,8 @@ const navigationLinks = [
     href: '/#services',
   },
   {
-    label: 'Why Buildly',
-    href: '/#why-buildly',
+    label: 'Why ShipPilot',
+    href: '/#why-shippilot',
   },
 ];
 
@@ -121,7 +121,7 @@ const PublicLayout = ({ children }) => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
             onClick={closeMenu}
           >
             <span className={styles.logoMark}>
@@ -131,7 +131,7 @@ const PublicLayout = ({ children }) => {
             </span>
 
             <span className={styles.logoText}>
-              Buildly
+              ShipPilot
             </span>
           </Link>
 
@@ -232,7 +232,7 @@ const PublicLayout = ({ children }) => {
               <span>Have an idea?</span>
 
               <p>
-                Buildly gives you the team to make it real.
+                ShipPilot gives you the team to make it real.
               </p>
             </div>
           </nav>

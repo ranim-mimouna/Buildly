@@ -10,6 +10,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectDetailsPage.module.css';
 
 const progressSteps = [
@@ -86,7 +87,7 @@ const designOptions = [
   {
     id: 'none',
     label: 'No design yet',
-    description: 'I need Buildly to shape the experience.',
+    description: 'I need ShipPilot to shape the experience.',
   },
   {
     id: 'ideas',
@@ -107,14 +108,14 @@ const designOptions = [
 
 const ownershipOptions = [
   {
-    id: 'buildly-managed',
-    label: 'Buildly manages everything',
+    id: 'shippilot-managed',
+    label: 'ShipPilot manages everything',
     description: 'Planning, design, development and delivery.',
   },
   {
     id: 'collaborative',
     label: 'Work with my team',
-    description: 'Buildly collaborates with existing people.',
+    description: 'ShipPilot collaborates with existing people.',
   },
   {
     id: 'development-only',
@@ -169,7 +170,7 @@ const getStorageData = (key) => {
 
 const getInitialDetails = () => {
   const savedDetails = getStorageData(
-    'buildly-project-details-draft',
+    STORAGE_KEYS.PROJECT_DETAILS_DRAFT,
   );
 
   return {
@@ -318,7 +319,7 @@ const ProjectDetailsPage = () => {
   const projectDraft = useMemo(
     () =>
       getStorageData(
-        'buildly-new-project-draft',
+        STORAGE_KEYS.NEW_PROJECT_DRAFT,
       ),
     [],
   );
@@ -326,7 +327,7 @@ const ProjectDetailsPage = () => {
   const requirementsDraft = useMemo(
     () =>
       getStorageData(
-        'buildly-project-requirements-draft',
+        STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
       ),
     [],
   );
@@ -399,7 +400,7 @@ const ProjectDetailsPage = () => {
 
   const saveDetails = () => {
     localStorage.setItem(
-      'buildly-project-details-draft',
+      STORAGE_KEYS.PROJECT_DETAILS_DRAFT,
       JSON.stringify(createDetailsDraft()),
     );
   };
@@ -442,7 +443,7 @@ const ProjectDetailsPage = () => {
 
     if (!ownership) {
       nextErrors.ownership =
-        'Please select how you want to work with Buildly.';
+        'Please select how you want to work with ShipPilot.';
     }
 
     if (!support) {
@@ -492,7 +493,7 @@ const ProjectDetailsPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -500,7 +501,7 @@ const ProjectDetailsPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <div className={styles.sidebarCopy}>
@@ -600,7 +601,7 @@ const ProjectDetailsPage = () => {
             className={styles.sidebarCopyright}
           >
             © {new Date().getFullYear()}{' '}
-            Buildly
+            ShipPilot
           </span>
         </motion.aside>
 
@@ -852,7 +853,7 @@ const ProjectDetailsPage = () => {
                   <span
                     className={styles.fieldLabel}
                   >
-                    How should Buildly work with
+                    How should ShipPilot work with
                     you?
                     <small>Required</small>
                   </span>

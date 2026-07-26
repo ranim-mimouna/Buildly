@@ -11,6 +11,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectReviewPage.module.css';
 
 const progressSteps = [
@@ -80,7 +81,8 @@ const designLabels = {
 };
 
 const ownershipLabels = {
-  'buildly-managed': 'Buildly manages everything',
+  'buildly-managed': 'ShipPilot manages everything',
+  'shippilot-managed': 'ShipPilot manages everything',
   collaborative: 'Work with my team',
   'development-only': 'Development only',
   'not-sure': 'Help me decide',
@@ -128,7 +130,7 @@ const createProjectId = () => {
     return crypto.randomUUID();
   }
 
-  return `buildly-${Date.now()}-${Math.random()
+  return `shippilot-${Date.now()}-${Math.random()
     .toString(16)
     .slice(2)}`;
 };
@@ -297,14 +299,14 @@ const ProjectReviewPage = () => {
 
   const projectDraft = useMemo(
     () =>
-      getStorageData('buildly-new-project-draft'),
+      getStorageData(STORAGE_KEYS.NEW_PROJECT_DRAFT),
     [],
   );
 
   const requirementsDraft = useMemo(
     () =>
       getStorageData(
-        'buildly-project-requirements-draft',
+        STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
       ),
     [],
   );
@@ -312,7 +314,7 @@ const ProjectReviewPage = () => {
   const detailsDraft = useMemo(
     () =>
       getStorageData(
-        'buildly-project-details-draft',
+        STORAGE_KEYS.PROJECT_DETAILS_DRAFT,
       ),
     [],
   );
@@ -394,10 +396,10 @@ const ProjectReviewPage = () => {
     };
 
     const existingProjects =
-      getStorageData('buildly-projects') ?? [];
+      getStorageData(STORAGE_KEYS.PROJECTS) ?? [];
 
     localStorage.setItem(
-      'buildly-projects',
+      STORAGE_KEYS.PROJECTS,
       JSON.stringify([
         submittedProject,
         ...existingProjects,
@@ -405,20 +407,20 @@ const ProjectReviewPage = () => {
     );
 
     localStorage.setItem(
-      'buildly-last-submitted-project',
+      STORAGE_KEYS.LAST_SUBMITTED_PROJECT,
       JSON.stringify(submittedProject),
     );
 
     localStorage.removeItem(
-      'buildly-new-project-draft',
+      STORAGE_KEYS.NEW_PROJECT_DRAFT,
     );
 
     localStorage.removeItem(
-      'buildly-project-requirements-draft',
+      STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
     );
 
     localStorage.removeItem(
-      'buildly-project-details-draft',
+      STORAGE_KEYS.PROJECT_DETAILS_DRAFT,
     );
 
     await new Promise(resolve => {
@@ -463,7 +465,7 @@ const ProjectReviewPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -471,7 +473,7 @@ const ProjectReviewPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <div className={styles.sidebarCopy}>
@@ -483,7 +485,7 @@ const ProjectReviewPage = () => {
 
             <p>
               Review the complete request before
-              sending it to your future Buildly
+              sending it to your future ShipPilot
               product team.
             </p>
           </div>
@@ -551,14 +553,14 @@ const ProjectReviewPage = () => {
 
             <p>
               Your answers will be used to prepare
-              the first Buildly project review.
+              the first ShipPilot project review.
             </p>
           </div>
 
           <span
             className={styles.sidebarCopyright}
           >
-            © {new Date().getFullYear()} Buildly
+            © {new Date().getFullYear()} ShipPilot
           </span>
         </motion.aside>
 
@@ -615,7 +617,7 @@ const ProjectReviewPage = () => {
                 </strong>
 
                 <p>
-                  Only the Buildly team assigned to
+                  Only the ShipPilot team assigned to
                   review your request will access
                   these details.
                 </p>
@@ -835,7 +837,7 @@ const ProjectReviewPage = () => {
                 <span>
                   I confirm that the information
                   above is correct and can be
-                  reviewed by the Buildly team.
+                  reviewed by the ShipPilot team.
                 </span>
               </label>
 

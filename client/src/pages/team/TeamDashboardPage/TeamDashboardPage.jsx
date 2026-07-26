@@ -10,6 +10,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './TeamDashboardPage.module.css';
 
 const statusFilters = [
@@ -128,7 +129,7 @@ const budgetOrder = {
 
 const getStoredProjects = () => {
   const savedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!savedProjects) {
@@ -142,7 +143,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -781,7 +782,7 @@ const ProjectRow = ({
 
             <span>
               {project.description ||
-                'Buildly project request'}
+                'ShipPilot project request'}
             </span>
           </div>
         </div>
@@ -936,7 +937,7 @@ const MobileProjectCard = ({
 
         <p>
           {project.description ||
-            'Buildly project request'}
+            'ShipPilot project request'}
         </p>
       </div>
 
@@ -1145,7 +1146,7 @@ const TeamDashboardPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -1153,7 +1154,7 @@ const TeamDashboardPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1271,7 +1272,7 @@ const TeamDashboardPage = () => {
             </span>
 
             <div>
-              <strong>Buildly Manager</strong>
+              <strong>ShipPilot Manager</strong>
               <span>Team administrator</span>
             </div>
 
@@ -1358,7 +1359,7 @@ const TeamDashboardPage = () => {
           <section className={styles.heroSection}>
             <div>
               <span className={styles.eyebrow}>
-                Buildly operations
+                ShipPilot operations
               </span>
 
               <h1>
@@ -1368,7 +1369,7 @@ const TeamDashboardPage = () => {
 
               <p>
                 Review incoming requests, organize
-                active work and keep every Buildly
+                active work and keep every ShipPilot
                 project moving.
               </p>
             </div>

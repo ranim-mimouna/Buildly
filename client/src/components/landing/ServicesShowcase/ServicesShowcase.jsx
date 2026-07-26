@@ -175,7 +175,7 @@ const DashboardVisual = () => {
   return (
     <div className={styles.dashboardVisual}>
       <div className={styles.previewSidebar}>
-        <span className={styles.previewLogo}>B</span>
+        <span className={styles.previewLogo}>S</span>
 
         <div className={styles.previewNavigation}>
           <span className={styles.activeNavigationItem} />
@@ -525,7 +525,7 @@ const AiVisual = () => {
       <div className={styles.aiContent}>
         <div className={styles.aiHeader}>
           <div>
-            <span>Buildly intelligence</span>
+            <span>ShipPilot intelligence</span>
             <strong>Project assistant</strong>
           </div>
 
@@ -578,7 +578,7 @@ const AiVisual = () => {
         </div>
 
         <div className={styles.aiInput}>
-          <span>Ask Buildly anything about your project...</span>
+          <span>Ask ShipPilot anything about your project...</span>
 
           <button type="button" tabIndex="-1">
             <ArrowIcon />
@@ -736,7 +736,7 @@ const ServicesShowcase = () => {
               </div>
 
               <p>
-                Buildly brings together product strategy,
+                ShipPilot brings together product strategy,
                 design, engineering and AI-assisted delivery
                 to create digital products shaped around your
                 business.
@@ -798,7 +798,7 @@ const ServicesShowcase = () => {
             </h2>
 
             <p>
-              Buildly brings together product strategy,
+              ShipPilot brings together product strategy,
               design, engineering and AI-assisted delivery to
               create digital products shaped around your
               business.

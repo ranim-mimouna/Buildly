@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react';
 
-import styles from './WhyBuildlySection.module.css';
+import styles from './WhyShipPilotSection.module.css';
 
 const benefits = [
   {
@@ -37,27 +37,27 @@ const comparisonRows = [
   {
     label: 'Project planning',
     traditional: 'Unclear estimates and long discovery phases',
-    buildly: 'Structured scope, priorities and milestones',
+    shipPilot: 'Structured scope, priorities and milestones',
   },
   {
     label: 'Communication',
     traditional: 'Updates filtered through multiple contacts',
-    buildly: 'Direct communication with your delivery team',
+    shipPilot: 'Direct communication with your delivery team',
   },
   {
     label: 'Progress visibility',
     traditional: 'Occasional reports and status meetings',
-    buildly: 'Live progress, tasks, approvals and decisions',
+    shipPilot: 'Live progress, tasks, approvals and decisions',
   },
   {
     label: 'AI usage',
     traditional: 'Added as a trend or used without transparency',
-    buildly: 'Used intentionally to support human expertise',
+    shipPilot: 'Used intentionally to support human expertise',
   },
   {
     label: 'Flexibility',
     traditional: 'Changes create delays and unexpected costs',
-    buildly: 'Priorities can evolve through a visible process',
+    shipPilot: 'Priorities can evolve through a visible process',
   },
 ];
 
@@ -300,7 +300,7 @@ const BenefitIcon = ({ icon }) => {
   return <CommunicationIcon />;
 };
 
-const WhyBuildlySection = () => {
+const WhyShipPilotSection = () => {
   const prefersReducedMotion = useReducedMotion();
 
   const reveal = {
@@ -316,7 +316,7 @@ const WhyBuildlySection = () => {
 
   return (
     <section
-      id="why-buildly"
+      id="why-shippilot"
       className={styles.section}
     >
       <div className={styles.background} aria-hidden="true">
@@ -341,7 +341,7 @@ const WhyBuildlySection = () => {
         >
           <div>
             <span className={styles.eyebrow}>
-              Why Buildly
+              Why ShipPilot
             </span>
 
             <h2>
@@ -351,7 +351,7 @@ const WhyBuildlySection = () => {
           </div>
 
           <p>
-            Buildly gives non-technical founders and businesses
+            ShipPilot gives non-technical founders and businesses
             a clear, collaborative way to build software with a
             real team supported by responsible AI.
           </p>
@@ -387,7 +387,7 @@ const WhyBuildlySection = () => {
               <SparkIcon />
 
               <span>
-                Buildly keeps humans responsible for every
+                ShipPilot keeps humans responsible for every
                 important decision.
               </span>
             </div>
@@ -416,9 +416,9 @@ const WhyBuildlySection = () => {
 
               <span>Traditional agency</span>
 
-              <span className={styles.buildlyColumnHeader}>
-                <span className={styles.buildlyLogo}>B</span>
-                Buildly
+              <span className={styles.shipPilotColumnHeader}>
+                <span className={styles.shipPilotLogo}>SP</span>
+                ShipPilot
               </span>
             </div>
 
@@ -453,7 +453,7 @@ const WhyBuildlySection = () => {
                       <CheckIcon />
                     </span>
 
-                    <p>{row.buildly}</p>
+                    <p>{row.shipPilot}</p>
                   </div>
                 </motion.div>
               ))}
@@ -580,7 +580,7 @@ const WhyBuildlySection = () => {
             <div className={styles.quoteMark}>“</div>
 
             <blockquote>
-              Buildly is designed for people with strong ideas,
+              ShipPilot is designed for people with strong ideas,
               not only for people who already understand
               software development.
             </blockquote>
@@ -589,7 +589,7 @@ const WhyBuildlySection = () => {
               <span className={styles.authorAvatar}>BM</span>
 
               <div>
-                <strong>Buildly founding team</strong>
+                <strong>ShipPilot founding team</strong>
                 <span>Product vision</span>
               </div>
             </div>
@@ -661,4 +661,4 @@ const WhyBuildlySection = () => {
   );
 };
 
-export default WhyBuildlySection;
+export default WhyShipPilotSection;

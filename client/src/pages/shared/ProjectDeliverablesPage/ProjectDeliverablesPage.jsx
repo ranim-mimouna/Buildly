@@ -12,6 +12,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectDeliverablesPage.module.css';
 
 const deliverableStatuses = {
@@ -66,7 +67,7 @@ const categoryLabels = {
 
 const getStoredProjects = () => {
   const storedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS,
   );
 
   if (!storedProjects) {
@@ -82,7 +83,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -90,7 +91,7 @@ const getStoredProjects = () => {
 
 const getStoredDeliverables = () => {
   const storedDeliverables = localStorage.getItem(
-    'buildly-project-deliverables',
+    STORAGE_KEYS.PROJECT_DELIVERABLES,
   );
 
   if (!storedDeliverables) {
@@ -109,7 +110,7 @@ const getStoredDeliverables = () => {
       : {};
   } catch {
     localStorage.removeItem(
-      'buildly-project-deliverables',
+      STORAGE_KEYS.PROJECT_DELIVERABLES,
     );
 
     return {};
@@ -734,7 +735,7 @@ const ProjectDeliverablesPage = ({
         getStoredDeliverables();
 
       localStorage.setItem(
-        'buildly-project-deliverables',
+        STORAGE_KEYS.PROJECT_DELIVERABLES,
         JSON.stringify({
           ...storedDeliverables,
           [project.id]: nextDeliverables,
@@ -901,7 +902,7 @@ const ProjectDeliverablesPage = ({
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1016,7 +1017,7 @@ const ProjectDeliverablesPage = ({
             <div>
               <strong>
                 {isTeam
-                  ? 'Buildly Team'
+                  ? 'ShipPilot Team'
                   : clientName}
               </strong>
 
@@ -1681,7 +1682,7 @@ const ProjectDeliverablesPage = ({
                 <p>
                   {isTeam
                     ? 'Add the first project output when it is ready to be prepared for delivery.'
-                    : 'The Buildly team has not published any deliverables yet.'}
+                    : 'The ShipPilot team has not published any deliverables yet.'}
                 </p>
 
                 {isTeam && (
@@ -1709,7 +1710,7 @@ const ProjectDeliverablesPage = ({
               <p>
                 Use project messages to discuss
                 feedback, revisions or approval
-                details with the Buildly team.
+                details with the ShipPilot team.
               </p>
             </div>
 

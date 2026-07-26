@@ -11,6 +11,7 @@ import {
   useReducedMotion,
 } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ClientDashboardPage.module.css';
 
 const statusFilters = [
@@ -72,7 +73,7 @@ const categoryIcons = {
 
 const getStoredProjects = () => {
   const savedProjects = localStorage.getItem(
-    'buildly-projects',
+    STORAGE_KEYS.PROJECTS
   );
 
   if (!savedProjects) {
@@ -86,7 +87,7 @@ const getStoredProjects = () => {
       ? parsedProjects
       : [];
   } catch {
-    localStorage.removeItem('buildly-projects');
+    localStorage.removeItem(STORAGE_KEYS.PROJECTS);
 
     return [];
   }
@@ -736,7 +737,7 @@ const ProjectCard = ({
 
         <p>
           {project.description ||
-            'Your Buildly project request.'}
+            'Your ShipPilot project request.'}
         </p>
       </div>
 
@@ -919,7 +920,7 @@ const ClientDashboardPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -927,7 +928,7 @@ const ClientDashboardPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <button
@@ -1001,7 +1002,7 @@ const ClientDashboardPage = () => {
             <span>Need help?</span>
 
             <strong>
-              Talk to the Buildly team
+              Talk to your project team
             </strong>
 
             <p>
@@ -1114,7 +1115,7 @@ const ClientDashboardPage = () => {
                   </strong>
 
                   <p>
-                    Your Buildly request has been
+                    Your ShipPilot request has been
                     saved and is ready for review.
                   </p>
                 </div>
@@ -1143,7 +1144,7 @@ const ClientDashboardPage = () => {
               </h1>
 
               <p>
-                Track your Buildly projects,
+                Track your ShipPilot projects,
                 review progress and start your
                 next product idea.
               </p>
@@ -1179,7 +1180,7 @@ const ClientDashboardPage = () => {
               <span>Total projects</span>
               <strong>{statistics.total}</strong>
               <small>
-                All submitted Buildly requests
+                All submitted ShipPilot requests
               </small>
             </article>
 

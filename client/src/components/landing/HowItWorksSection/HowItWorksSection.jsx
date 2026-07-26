@@ -126,7 +126,7 @@ const IdeaVisual = () => {
           <h3>What would you like to build?</h3>
 
           <p>
-            Start with the idea. Buildly will help structure
+            Start with the idea. ShipPilot will help structure
             everything else.
           </p>
         </div>
@@ -420,7 +420,7 @@ const ProcessVisual = ({ activeStep }) => {
       <div className={styles.visualTopbar}>
         <div>
           <span className={styles.liveDot} />
-          Buildly process
+          ShipPilot process
         </div>
 
         <span>{activeStep.number} / 03</span>
@@ -576,7 +576,7 @@ const HowItWorksSection = () => {
             </h2>
 
             <p>
-              Buildly gives you a structured process, a real
+              ShipPilot gives you a structured process, a real
               team and complete visibility from the first
               conversation to launch.
             </p>

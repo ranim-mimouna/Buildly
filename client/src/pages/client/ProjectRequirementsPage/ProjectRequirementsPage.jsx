@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 import { motion, useReducedMotion } from 'motion/react';
 
+import { STORAGE_KEYS } from '../../../constants/storageKeys';
 import styles from './ProjectRequirementsPage.module.css';
 
 const progressSteps = [
@@ -87,7 +88,7 @@ const featureSuggestions = [
 
 const getSavedProjectDraft = () => {
   const savedDraft = localStorage.getItem(
-    'buildly-new-project-draft',
+    STORAGE_KEYS.NEW_PROJECT_DRAFT,
   );
 
   if (!savedDraft) {
@@ -97,7 +98,7 @@ const getSavedProjectDraft = () => {
   try {
     return JSON.parse(savedDraft);
   } catch {
-    localStorage.removeItem('buildly-new-project-draft');
+    localStorage.removeItem(STORAGE_KEYS.NEW_PROJECT_DRAFT);
 
     return null;
   }
@@ -105,7 +106,7 @@ const getSavedProjectDraft = () => {
 
 const getInitialRequirements = () => {
   const savedRequirements = localStorage.getItem(
-    'buildly-project-requirements-draft',
+    STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
   );
 
   if (!savedRequirements) {
@@ -137,7 +138,7 @@ const getInitialRequirements = () => {
     };
   } catch {
     localStorage.removeItem(
-      'buildly-project-requirements-draft',
+      STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
     );
 
     return {
@@ -288,7 +289,7 @@ const ProjectRequirementsPage = () => {
 
   const saveRequirements = () => {
     localStorage.setItem(
-      'buildly-project-requirements-draft',
+      STORAGE_KEYS.PROJECT_REQUIREMENTS_DRAFT,
       JSON.stringify(createRequirementsDraft()),
     );
   };
@@ -387,7 +388,7 @@ const ProjectRequirementsPage = () => {
           <Link
             to="/"
             className={styles.logo}
-            aria-label="Buildly home"
+            aria-label="ShipPilot home"
           >
             <span className={styles.logoMark}>
               <span />
@@ -395,7 +396,7 @@ const ProjectRequirementsPage = () => {
               <span />
             </span>
 
-            <span>Buildly</span>
+            <span>ShipPilot</span>
           </Link>
 
           <div className={styles.sidebarCopy}>
@@ -466,7 +467,7 @@ const ProjectRequirementsPage = () => {
           </div>
 
           <span className={styles.sidebarCopyright}>
-            © {new Date().getFullYear()} Buildly
+            © {new Date().getFullYear()} ShipPilot
           </span>
         </motion.aside>
 
@@ -493,7 +494,7 @@ const ProjectRequirementsPage = () => {
                 <h2>Define the requirements</h2>
 
                 <p>
-                  Choose the closest answers. Your Buildly team
+                  Choose the closest answers. Your ShipPilot team
                   will help refine everything later.
                 </p>
               </div>
