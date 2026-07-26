@@ -3,12 +3,23 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import LandingPage from '../pages/public/LandingPage/LandingPage';
 import LoginPage from '../pages/public/LoginPage/LoginPage';
 import RegisterPage from '../pages/public/RegisterPage/RegisterPage';
+import ProjectRequirementsPage from "../pages/client/ProjectRequirementsPage/ProjectRequirementsPage";
+import ProjectDetailsPage from '../pages/client/ProjectDetailsPage/ProjectDetailsPage';
+import ProjectReviewPage from '../pages/client/ProjectReviewPage/ProjectReviewPage';
 
 import ClientDashboardPage from '../pages/client/ClientDashboardPage/ClientDashboardPage';
 import NewProjectPage from '../pages/client/NewProjectPage/NewProjectPage';
 import ClientProjectPage from '../pages/client/ClientProjectPage/ClientProjectPage';
 
 import TeamDashboardPage from '../pages/team/TeamDashboardPage/TeamDashboardPage';
+import TeamProjectPage from '../pages/team/TeamProjectPage/TeamProjectPage';
+import ProjectMessagesPage from '../pages/shared/ProjectMessagesPage/ProjectMessagesPage';
+import ProjectRoadmapPage from '../pages/shared/ProjectRoadmapPage/ProjectRoadmapPage';
+import ProjectProposalPage from '../pages/shared/ProjectProposalPage/ProjectProposalPage';
+import ProjectPaymentsPage from '../pages/shared/ProjectPaymentsPage/ProjectPaymentsPage';
+import ProjectDeliverablesPage from '../pages/shared/ProjectDeliverablesPage/ProjectDeliverablesPage';
+import ProjectTasksPage from '../pages/shared/ProjectTasksPage/ProjectTasksPage';
+import ProjectTeamPage from '../pages/shared/ProjectTeamPage/ProjectTeamPage';
 import AdminDashboardPage from '../pages/admin/AdminDashboardPage/AdminDashboardPage';
 
 const AppRoutes = () => {
@@ -30,13 +41,107 @@ const AppRoutes = () => {
       />
 
       <Route
+        path="/client/projects/new/requirements"
+        element={<ProjectRequirementsPage />}
+      />
+
+      <Route
+        path="/client/projects/new/details"
+        element={<ProjectDetailsPage />}
+      />
+
+      <Route
+        path="/client/projects/new/review"
+        element={<ProjectReviewPage />}
+      />
+
+      <Route
         path="/client/projects/:projectId"
         element={<ClientProjectPage />}
       />
 
       <Route
+        path="/client/projects/:projectId/roadmap"
+        element={<ProjectRoadmapPage role="client" />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/proposal"
+        element={<ProjectProposalPage role="client" />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/payments"
+        element={<ProjectPaymentsPage role="client" />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/deliverables"
+        element={
+          <ProjectDeliverablesPage role="client" />
+        }
+      />
+
+      <Route
+        path="/client/projects/:projectId/tasks"
+        element={<ProjectTasksPage role="client" />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/team"
+        element={<ProjectTeamPage role="client" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/team"
+        element={<ProjectTeamPage role="team" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/tasks"
+        element={<ProjectTasksPage role="team" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/deliverables"
+        element={
+          <ProjectDeliverablesPage role="team" />
+        }
+      />
+
+      <Route
+        path="/team/projects/:projectId/payments"
+        element={<ProjectPaymentsPage role="team" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/proposal"
+        element={<ProjectProposalPage role="team" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/roadmap"
+        element={<ProjectRoadmapPage role="team" />}
+      />
+
+      <Route
         path="/team/dashboard"
         element={<TeamDashboardPage />}
+      />
+
+      <Route
+        path="/team/projects/:projectId"
+        element={<TeamProjectPage />}
+      />
+
+      <Route
+        path="/client/projects/:projectId/messages"
+        element={<ProjectMessagesPage role="client" />}
+      />
+
+      <Route
+        path="/team/projects/:projectId/messages"
+        element={<ProjectMessagesPage role="team" />}
       />
 
       <Route

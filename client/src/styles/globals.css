@@ -17,6 +17,13 @@ body {
 
   font-family: var(--font-primary);
   line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.menuOpen {
+  overflow: hidden;
 }
 
 button,
@@ -26,13 +33,13 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
-}
-
-button {
-  cursor: pointer;
 }
 
 a {
@@ -40,7 +47,8 @@ a {
   text-decoration: none;
 }
 
-img {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -53,10 +61,29 @@ p {
   margin-top: 0;
 }
 
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid rgba(108, 92, 231, 0.28);
+  outline-offset: 3px;
+}
+
 .container {
   width: min(
     var(--container-width),
-    calc(100% - 40px)
+    calc(100% - 48px)
   );
+
   margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(
+      var(--container-width),
+      calc(100% - 32px)
+    );
+  }
 }
